@@ -1,6 +1,6 @@
 {
-  "title": "gitbook-init",
-  "description": "gitbook初始化",
+  "title": "dev-tool",
+  "description": "开发工具",
   "author": "wchaochao",
   "language": "zh-hans",
   "styles": {
@@ -27,7 +27,7 @@
       "shortName": "https-wchaochao-gitbooks-io-webbook-content"
     },
     "github": {
-      "url": "https://github.com/wchaochao/webbook"
+      "url": "https://github.com/wchaochao/dev-tool"
     },
     "sharing": {
       "weibo": false,

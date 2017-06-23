@@ -1,7 +1,7 @@
 {
-  "name": "gitbook-init",
+  "name": "dev-tool",
   "version": "1.0.0",
-  "description": "gitbook init",
+  "description": "开发工具",
   "main": "index.js",
   "scripts": {
     "init": "gitbook init",
@@ -11,17 +11,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wchaochao/gitbook-init.git"
+    "url": "git+https://github.com/wchaochao/dev-tool.git"
   },
   "keywords": [
-    "gitbook"
+    "development",
+    "tool"
   ],
   "author": "wchaochao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/wchaochao/gitbook-init/issues"
+    "url": "https://github.com/wchaochao/dev-tool/issues"
   },
-  "homepage": "https://github.com/wchaochao/gitbook-init#readme",
+  "homepage": "https://github.com/wchaochao/dev-tool#readme",
   "devDependencies": {
     "browser-sync": "^2.18.12",
     "del": "^3.0.0",
