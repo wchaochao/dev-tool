@@ -9,5 +9,6 @@
 ## 已完成
 
 * [cmder](cli/cmder/README.md)
+* [chocolatey](spm/chocolatey/README.md)
 * [markdown](doc/markdown/README.md)
 * [gitbook](doc/gitbook/README.md)
