@@ -8,5 +8,6 @@
 
 ## 已完成
 
+* [cmder](cli/cmder/README.md)
 * [markdown](doc/markdown/README.md)
 * [gitbook](doc/gitbook/README.md)

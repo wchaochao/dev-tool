@@ -2,6 +2,12 @@
 
 * [Introduction](README.md)
 
+* [命令行](cli/README.md)
+  * [cmder](cli/cmder/README.md)
+    * [安装](cli/cmder/install.md)
+    * [常用功能](cli/cmder/feature.md)
+    * [命令行基础](cli/cmder/base.md)
+    * [常用命令](cli/cmder/common.md)
 * [文档编写](doc/README.md)
   * [markdown](doc/markdown/README.md)
     * [概述](doc/markdown/overview.md)
