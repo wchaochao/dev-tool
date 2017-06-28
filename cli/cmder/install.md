@@ -17,4 +17,8 @@
 
 ### 默认设置
 
-`windows+alt+p`打开设置页面，点击Startup，Specified named task选择PowerShell as Admin
+`windows+alt+p`打开设置页面，点击Startup，Specified named task选择Cmder as Admin
+
+### 修改提示符
+
+将vendor目录下的clink.lua第41行`local cmder_prompt = "\x1b[1;32;40m{cwd} {Git}{hg} \n\x1b[1;30;40m{lamd} \x1b[0m"` 里的{lamb}改为$

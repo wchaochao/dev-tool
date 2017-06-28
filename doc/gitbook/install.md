@@ -82,11 +82,9 @@ gitbook -h查看gitbook-cli命令
 
 ## 常用命令
 
-```
-gitbook init: 初始化目录
-gitbook build: 编译
-gitbook serve: 在线预览
-```
+* `gitbook init`: 初始化目录
+* `gitbook build`: 编译
+* `gitbook serve`: 在线预览
 
 gitbook serve命令在windows平台下经常出错，使用gulpfile.js代替
 
