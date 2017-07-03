@@ -8,7 +8,6 @@
 
 * [git-book](https://github.com/ninghao/git-book)
 * [Pro Git](https://bingohuang.gitbooks.io/progit2/content/)
-* [git权威指南](http://www.worldhello.net/gotgit/)
 
 
 # 特点
@@ -77,11 +76,34 @@
 
 下一级别覆盖上一级别
 
-* /etc/config: 当前系统配置
+* /etc/config: 当前系统配置(git目录下)
 * ~/.gitconfig或~/.config/git/config: 当前用户配置
 * .git/config: 当前仓库配置
 
-## 命令
+## 常用配置
+
+### 全局用户名和邮箱
+
+* `git config --global user.name "<username>"`: 配置全局用户名
+* `git config --global user.email <useremail>`: 配置全局用户邮箱
+
+### 全局编辑器
+
+* `git config --global core.editor <editor>`: 配置全局编辑器(editor为启动编辑器的命令)
+
+### 别名
+
+* git config --global alias.st status
+* git config --global alias.ci commit
+* git config --global alias.br branch
+* git config --global alias.co checkout
+* git config --global alias.unstage 'reset HEAD'
+* git config --global alias.undo 'checkout --'
+* git config --global alias.last 'log -1'
+* git conifg --global alias.lg 'log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Cre'
+
+
+## 配置命令
 
 ```
 usage: git config [<options>]
@@ -127,8 +149,6 @@ Other
 * `git config --system`: 当前系统配置
 * `git config --global`: 当前用户配置
 * `git config`: 当前仓库配置
-* `git config --global user.name "<username>"`: 配置全局用户名
-* `git config --global user.email <useremail>`: 配置全局用户邮箱
 * `git config -l`: 查看所有配置
 * `git config -e`: 编辑配置文件
 
@@ -154,14 +174,18 @@ Other
 
 Git完成各种工作中将要使用的各种基本命令
 
+## 帮助
+
+* `git help <command>`: 帮助文档
+
 ## 获取Git仓库
 
 * `git init`: 当前目录初始化git仓库
 * `git init [dir]`: 指定目录初始化git仓库
-* `git clone <repo>`: 克隆git仓库
-* `git clone <repo> <dir>`: 指定目录下克隆git仓库
-* `git clone -b <branch> <repo>`: 克隆某个分支
-* `git clone -o <remote> <repo>`: 设置远程连接名
+* `git clone <repo>`: 当前目录克隆git仓库
+* `git clone <repo> <dir>`: 指定目录克隆git仓库
+* `git clone -b <branch> <repo>`: 克隆指定分支
+* `git clone -o <remote-name> <repo>`: 指定远程仓库的简写
 * `git clone -c <key=value> <repo>`: 设置仓库配置
 
 ## 工作目录状态
@@ -184,10 +208,95 @@ Git完成各种工作中将要使用的各种基本命令
 * `git diff --cached`: 比较暂存区和本地仓库
 * `git diff --cached <path...>`: 比较暂存区和本地仓库的某些文件
 * `git diff --staged`: 比较暂存区和本地仓库
+* `git diff HEAD`: 比较工作目录和本地仓库
 
 ## 暂存
 
-* `git add <file1, file2...>`: 跟踪新文件或暂存已修改的文件
-* `git add <dir2, dir2...>`: 跟踪指定目录下的新文件或暂存指定目录下已修改的文件
-* `git add -a`: 跟踪所有新文件或暂存所有已修改的文件
+* `git add <path...>`: 跟踪新文件或暂存已修改的文件
+* `git add .`: 跟踪本目录下的新文件或暂存本目录下的已修改文件
+* `git add -A`: 跟踪所有新文件或暂存所有已修改的文件
+* `git rm <path...>`: 删除文件并暂存
+* `git rm --cached <path...>`: 删除暂存区的文件
+* `git mv <target> <destination>`: 重命名文件并暂存
 
+## 撤销
+
+* `git reset HEAD <file>`: 撤销暂存
+* `git checkout -- <file>`: 撤销修改
+
+## 提交
+
+* `git commit`: 启动配置的编辑器输入提交信息并提交
+* `git commit -m '<message>'`: 指定提交信息并提交
+* `git commit -a`: 暂存所有已跟踪的文件并提交
+* `git commit --amend`: 重新提交
+
+## 提交历史
+
+* `git log`: 显示提交历史
+* `git log -p`: 显示每次提交的详细更改信息
+* `git log --stat`: 显示每次提交的简要更改信息
+* `git log --graph`: 图表显示
+* `git log --pretty=<format>`: 指定显示的格式
+  * oneline 一行显示commit, message
+  * short 分行显示commit, Author, message
+  * full 分行显示commit, Author, Commit, message
+  * fuller 分行显示commit, Author, AuthorDate, Commit, CommitDate, message
+  * format:"<options>" 自定义格式
+    * %H|%h commit的完整|简短哈希字符串
+    * %T|%t tree的完整|简短哈希字符串
+    * %P|%p parent的完整|简短哈希字符串
+    * %an|%ae|%ad|%ar 作者名字|邮箱|提交日期(--date= 时间格式)|提交日期(按多久以前的方式显示)
+    * %cn|%ce|%cd|%cr 提交者名字|邮箱|提交日期(--date= 时间格式)|提交日期(按多久以前的方式显示)
+    * %s message
+* git log <filter> 筛选提交历史
+  * -<n> 仅显示最近的 n 条提交
+  * --since|--after 仅显示指定时间之后的提交
+  * --until|--before 仅显示指定时间之前的提交
+  * --author 仅显示指定作者相关的提交
+  * --committer 仅显示指定提交者相关的提交
+  * --grep 仅显示含指定关键字的提交
+  * --no-merges 仅显示未合并的提交
+  --all-match 满足所有条件的提交
+
+## 标签
+
+* `git tag`: 显示所有标签
+* `git show <tag>`: 显示某个标签的信息
+* `git tab <tag>`: 创建轻量标签
+* `git tab -a <tag> -m "<message>"`: 创建附注标签
+* `git tab -a <tag> <commit>`: 给指定提交创建附注标签
+* `git push <remote-name> <tag>`: 推送某个标签
+* `git push <remote-name> --tags`: 推送所有标签
+* ··
+
+## 远程仓库
+
+* `git remote`: 远程仓库的简写
+* `git remote -v`: 远程仓库的简写和url
+* `git remote show [remote-name]`: 显示远程仓库的详细信息
+* `git remote add <remote-name> <url>`: 添加远程仓库
+* `git remote rm <remote-name>`: 移除远程仓库
+* `git remote rename <remote-name1> <remote-name2>`: 重命名远程仓库
+* `git fetch [remote-name]`: 抓取远程仓库的所有分支的数据
+* `git pull [remote-name] [branch]`: 获取跟踪的远程分支的数据并合并到本地仓库的对应分支
+* `git push [remote-name] [branch]`: 推送本地分支的数据到对应的远程分支
+
+
+# 分支
+
+提交对象
+
+![提交对象](images/commit-and-tree.png)
+
+提交链
+
+![提交链](images/commits-and-parents.png)
+
+分支
+
+![分支](images/branch-and-history.png)
+
+创建分支
+
+git branch <branch>
