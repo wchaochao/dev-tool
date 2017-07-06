@@ -12,6 +12,7 @@
   * [chocolatey](spm/chocolatey/README.md)
     * [安装](spm/chocolatey/install.md)
     * [命令](spm/chocolatey/command.md)
+    * [常用软件](spm/chocolatey/software.md)
 * [版本控制](vcs/README.md)
   * [git](vcs/git/README.md)
 * [文档编写](doc/README.md)

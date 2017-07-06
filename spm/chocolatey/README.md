@@ -6,6 +6,7 @@ Windows的软件包管理工具
 
 * [安装](install.md)
 * [命令](command.md)
+* [常用软件](software.md)
 
 ## 参考资料
 
