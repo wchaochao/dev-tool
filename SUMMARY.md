@@ -15,6 +15,7 @@
     * [常用软件](spm/chocolatey/software.md)
 * [版本控制](vcs/README.md)
   * [git](vcs/git/README.md)
+    * [草稿](vcs/git/draft.md)
 * [文档编写](doc/README.md)
   * [markdown](doc/markdown/README.md)
     * [概述](doc/markdown/overview.md)
