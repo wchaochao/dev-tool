@@ -13,15 +13,13 @@ gitbook的扩展功能
 
 ## 默认插件
 
-> * [highlight](https://plugins.gitbook.com/plugin/highlight): 代码高亮
-> * [search](https://plugins.gitbook.com/plugin/search): 搜索
-> * [sharing](https://plugins.gitbook.com/plugin/sharing): 分享
-> * [fontsettings](https://plugins.gitbook.com/plugin/fontsettings): 字体设置
-> * [livereload](https://plugins.gitbook.com/plugin/livereload): 自动刷新
+* [highlight](https://plugins.gitbook.com/plugin/highlight): 代码高亮
+* [search](https://plugins.gitbook.com/plugin/search): 搜索
+* [sharing](https://plugins.gitbook.com/plugin/sharing): 分享
+* [fontsettings](https://plugins.gitbook.com/plugin/fontsettings): 字体设置
+* [livereload](https://plugins.gitbook.com/plugin/livereload): 自动刷新
 
 ## 常用插件
-
-实用插件
 
 ### [Disqus](https://plugins.gitbook.com/plugin/disqus)
 
@@ -187,7 +185,7 @@ gitbook的扩展功能
 }
 ```
 
-### [Donate]((https://plugins.gitbook.com/plugin/donate))
+### [Donate](https://plugins.gitbook.com/plugin/donate)
 
 打赏
 

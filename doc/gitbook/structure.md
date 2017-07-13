@@ -1,15 +1,15 @@
 # 目录结构
 
-> * README.md: 介绍
-> * SUMMARY.md: 章节目录
-> * LANGS.md: 多语言
-> * GLOSSARY.md: 术语清单
-> * cover.jpg: 大封面
-> * cover_small.jpg: 小封面
-> * .gitignore: git的忽略文件
-> * .bookignore: book的忽略文件
-> * .ignore: 忽略文件
-> * book.json: 配置文件
+* `README.md`: 介绍
+* `SUMMARY.md`: 章节目录
+* `LANGS.md`: 多语言
+* `GLOSSARY.md`: 术语清单
+* `cover.jpg`: 大封面
+* `cover_small.jpg`: 小封面
+* `.gitignore`: git的忽略文件
+* `.bookignore`: book的忽略文件
+* `.ignore`: 忽略文件
+* `book.json`: 配置文件
 
 ## README.md
 

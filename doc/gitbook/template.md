@@ -14,58 +14,58 @@ Gitbook使用Numjunks和的模板语法
 
 ## 全局变量
 
-> * gitbook: gitbook信息
-> * page: 当前页信息
-> * file: 当前文件信息
-> * readme: README信息
-> * summary: SUMMARY信息
-> * languages: LANGS信息
-> * glossary: GLOSSARY信息
-> * book: book.json中的配置信息
+* `gitbook`: gitbook信息
+* `page`: 当前页信息
+* `file`: 当前文件信息
+* `readme`: README信息
+* `summary`: SUMMARY信息
+* `languages`: LANGS信息
+* `glossary`: GLOSSARY信息
+* `book`: book.json中的配置信息
 
 ### Gitbook变量
 
-> * gitbook.time: gitbook的运行时间
-> * gitbbok.version: gitbook的版本号
+* `gitbook.time`: gitbook的运行时间
+* `gitbbok.version`: gitbook的版本号
 
 ### page变量
 
-> * page.title: 页面标题
-> * page.previous: 上一页
-> * page.next: 下一页
-> * page.dir: 文本方向
+* `page.title`: 页面标题
+* `page.previous`: 上一页
+* `page.next`: 下一页
+* `page.dir`: 文本方向
 
 ### file变量
 
-> * file.path: 文件路径
-> * file.type: 文件类型
-> * file.mtime: 文件的最后修改时间
+* `file.path`: 文件路径
+* `file.type`: 文件类型
+* `file.mtime`: 文件的最后修改时间
 
 ### output变量
 
-> * output.name: 输出名称
-> * output.format: 输出格式
+* `output.name`: 输出名称
+* `output.format`: 输出格式
 
 ### readme变量
 
-> * readme.path: README的文件路径
+* `readme.path`: README的文件路径
 
 ### summary变量
 
-> * summary.parts: 章节目录
+* `summary.parts`: 章节目录
 
 ### languages变量
 
-> * languages.list: 语言列表
+* `languages.list`: 语言列表
 
 ### glossary变量
 
-> * golssary.path: GLOSSARY的文件路径
+* `golssary.path`: GLOSSARY的文件路径
 
 ### book变量
 
-> * book.language: book.json中的语言设置
-> * book.[value]: book.json中的变量设置
+* `book.language`: book.json中的语言设置
+* `book.[value]`: book.json中的变量设置
 
 ```json
 {
