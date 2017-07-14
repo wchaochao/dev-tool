@@ -31,17 +31,30 @@
 
 ## 工作区域
 
-* Git仓库目录：本地仓库
-* 工作目录：项目的某个快照
-* 暂存区域：保存了下次将提交的文件快照
+* 工作目录：本地工作的地方
+* 暂存区域：暂存修改的文件快照
+* 本地仓库：存储提交对象
+* 远程仓库：推送或抓取数据
 
 ![工作区域](images/areas.png)
 
 ## 工作流程
 
 1. 修改文件：在工作目录中修改文件
+
+![修改文件](images/reset-ex4.png)
+
 2. 暂存文件：将修改的文件添加到暂存区域
-3. 提交更新：将暂存区域的快照永久性存储到本地仓库中
+
+![暂存文件](images/reset-ex5.png)
+
+3. 提交更新：将暂存区域的快照存储到本地仓库中
+
+![提交更新](images/reset-ex6.png)
+
+4. 远程交互：将本地提交推送到远程仓库或从远程仓库获取提交
+
+![远程交互](images/remote-operate.jpg)
 
 ## 文件状态
 
@@ -76,52 +89,11 @@
 
 下一级别覆盖上一级别
 
-* /etc/config: 当前系统配置(git目录下)
+* git目录/etc/config: 当前系统配置
 * ~/.gitconfig或~/.config/git/config: 当前用户配置
-* .git/config: 当前仓库配置
+* 当前仓库目录/.git/config: 当前仓库配置
 
 ## 配置命令
-
-```
-usage: git config [<options>]
-
-Config file location
-    --global              use global config file
-    --system              use system config file
-    --local               use repository config file
-    -f, --file <file>     use given config file
-    --blob <blob-id>      read config from given blob object
-
-Action
-    --get                 get value: name [value-regex]
-    --get-all             get all values: key [value-regex]
-    --get-regexp          get values for regexp: name-regex [value-regex]
-    --get-urlmatch        get value specific for the URL: section[.var] URL
-    --replace-all         replace all matching variables: name value [value_regex]
-    --add                 add a new variable: name value
-    --unset               remove a variable: name [value-regex]
-    --unset-all           remove all matches: name [value-regex]
-    --rename-section      rename section: old-name new-name
-    --remove-section      remove a section: name
-    -l, --list            list all
-    -e, --edit            open an editor
-    --get-color           find the color configured: slot [default]
-    --get-colorbool       find the color setting: slot [stdout-is-tty]
-
-Type
-    --bool                value is "true" or "false"
-    --int                 value is decimal number
-    --bool-or-int         value is --bool or --int
-    --path                value is a path (file or directory name)
-
-Other
-    -z, --null            terminate values with NUL byte
-    --name-only           show variable names only
-    --includes            respect include directives on lookup
-    --show-origin         show origin of config (file, standard input, blob, command line)
-```
-
-## 常用命令
 
 * `git config --system`: 当前系统配置
 * `git config --global`: 当前用户配置
@@ -131,14 +103,51 @@ Other
 
 ## 常用配置
 
-### 全局用户名和邮箱
+### 用户名和邮箱
 
-* `git config --global user.name "<username>"`: 配置全局用户名
-* `git config --global user.email <useremail>`: 配置全局用户邮箱
+* `git config --global user.name "<username>"`: 设置用户名
+* `git config --global user.email <useremail>`: 设置邮箱
 
-### 全局编辑器
+### 文本编辑器
 
-* `git config --global core.editor <editor>`: 配置全局编辑器(editor为启动编辑器的命令)
+* `git config --global core.editor <editor>`: 设置文本编辑器(editor为启动编辑器的命令)，默认为vi
+
+### 分页器
+
+* `git config --global core.pager ['' | less | more]`: 设置分页器，默认为less
+
+### 忽略文件
+
+* `git config --global core.excludesfile <file>`: 设置全局忽略文件
+
+### 提交信息模板
+
+* `git config --global commit.template <file>`: 设置提交信息模板
+
+### 着色
+
+* `git config --global color.ui [auto | false | always]`: 是否着色，默认为auto
+* `git conifg --global color.[branch|diff|interactive|status] '<foreground background font>'`: 着什么色
+
+### 合并和比较工具
+
+### GPG签署密钥
+
+* `git config --global user.signingkey <gpg-key-id>`: 设置GPG签署密钥
+
+### 凭证
+
+使用HTTP协议连接时，需要提供凭证，默认每次连接都询问用户名和密码
+
+* `git config --global credential.helper cache --timeout <n>`: 将凭证存放到内存中一段时间
+* `git config --global credential.helper --file <path>`: 将凭证明文存放到文件中
+
+### SSH
+
+使用SSH连接时，需要将本机的SSH公钥提供给git服务器，每次连接都不需凭证
+
+1. 执行`ssh --gen-key`命令，生成SSH密钥对
+2. 将SSH公钥提供给git服务器
 
 ### 别名
 
@@ -171,11 +180,10 @@ Other
 
 # 基本命令
 
-![操作图](images/remote-operate.jpg)
-
 ## 帮助
 
-* `git help <command>`: 帮助文档
+* `git <command> --help`: 帮助文档
+* `git <command> -h`: 帮助
 
 ## 获取Git仓库
 
@@ -183,9 +191,9 @@ Other
 * `git init <dir>`: 指定目录初始化git仓库
 * `git clone <repo>`: 当前目录克隆git仓库
 * `git clone <repo> <dir>`: 指定目录克隆git仓库
-* `git clone -b <branch-name> <repo>`: 克隆指定分支
-* `git clone -o <remote-name> <repo>`: 设置远程仓库名
-* `git clone -c <key=value> <repo>`: 设置仓库配置
+* `git clone -b <branch-name> <repo>`: 指定克隆分支
+* `git clone -o <remote-name> <repo>`: 指定远程仓库名
+* `git clone -c <key=value> <repo>`: 指定仓库配置
 
 ## 工作目录状态
 
@@ -211,27 +219,106 @@ Other
 * `git diff --staged`: 比较暂存区和本地仓库
 * `git diff HEAD`: 比较工作目录和本地仓库
 * `git diff HEAD <path...>`: 比较工作目录和本地仓库的某些文件
+* `git diff <commit>`: 比较工作目录和某个提交
+* `git diff <commit> <path...>`: 比较工作目录和某个提交的某些文件
+
+## 搜索
+
+* `git grep <text>`: 在工作目录中搜索
+* `git grep -n <text>`: 显示行号
+* `git grep --count <text>`: 显示数目
+* `git grep --break <text>`: 不同文件空行隔开
+* `git grep --heading <text>`: 以文件划分
 
 ## 暂存
 
 * `git add <path...>`: 跟踪新文件或暂存已修改的文件
 * `git add .`: 跟踪本目录下的新文件或暂存本目录下的已修改文件
-* `git add -A`: 跟踪所有新文件或暂存所有已修改的文件
+* `git add --all`: 跟踪所有新文件或暂存所有已修改的文件
+* `git add -p`: 暂存文件的一部分
+* `git add -i`: 进入暂存交互界面
 * `git rm <path...>`: 删除文件并暂存
 * `git rm --cached <path...>`: 删除暂存区的文件
 * `git mv <target> <destination>`: 重命名文件并暂存
 
-## 撤销
+## 储藏
 
-* `git reset HEAD <file>`: 撤销暂存文件
-* `git checkout -- <file>`: 撤销修改文件
+* `git stash`: 储藏跟踪的修改和暂存
+* `git stash -u`: 储藏未跟踪的修改
+* `git stash -all`: 储藏所有修改和暂存
+* `git stash --keep-index`: 储藏未暂存的跟踪的修改
+* `git stash --patch`: 选择要储藏的改动
+* `git stash list`: 查看储藏
+* `git stash show stash@{<n>}`: 查看某个储藏
+* `git stash apply stash@{<n>}`: 应用某个储藏的修改
+* `git stash apply`: 应用最近储藏的修改
+* `git stash apply --index stash@{<n>}`: 应用某个储藏的暂存
+* `git stash apply --index`: 应用最近储藏的暂存
+* `git stash drop stash@{<n>}`: 移除某个储藏
+* `git stash pop`: 移除最近的储藏
+* `git stash branch <branch-name> stash@{<n>}`: 新建本地分支，并应用某个储藏，应用成功后移除储藏
+* `git stash branch <branch-name>`: 新建本地分支，并应用最近的储藏，应用成功后移除储藏
+
+## 清理
+
+* `git clean`: 移除未忽略未跟踪的文件
+* `git clean -x`: 移除所有未跟踪的文件
+* `git clean -d`: 移除未忽略未跟踪的文件和空目录
+* `git clean -i`: 交互模式
+* `git clean -n`: 移除预演
 
 ## 提交
 
 * `git commit`: 启动配置的编辑器输入提交信息并提交
 * `git commit -m '<message>'`: 指定提交信息并提交
 * `git commit -a`: 暂存所有已跟踪的文件并提交
-* `git commit --amend`: 合并进上次提交
+* `git commit --amend`: 修改最后一次提交
+
+## 提交信息
+
+* `git show <commit>`: 显示某个提交的详细信息
+* `git show <branch-name>`: 显示某个分支指向的提交的详细信息
+* `git show <tag>`: 显示某个标签指向的提交的详细信息
+* `git show <commit>~`: 显示某个提交的父提交的详细信息
+* `git show <commit>~<n>`: 显示某个提交的n代祖先提交的详细信息
+
+## 回滚
+
+* `git reset --soft <commit>`: 当前分支指向commit
+
+![reset-soft](images/reset-soft.png)
+
+* `git reset --mixed <commit>`: 当前分支指向commit，并用commit的文件快照覆盖暂存区
+
+![reset-mixed](images/reset-mixed.png)
+
+* `git reset --hard <commit>`: 当前分支指向commit，并用coomit的文件快照覆盖暂存区，再用暂存区的文件快照覆盖工作目录
+
+![reset-hard](images/reset-hard.png)
+
+* `git reset <commit> <path>`: 使用commit中的指定文件快照覆盖暂存区对应的文件
+
+![reset-path](images/reset-path3.png)
+
+## 合并提交
+
+```
+git reset --soft HEAD~2
+git commit -m '合并提交'
+```
+
+![reset-squash1](images/reset-squash-r2.png)
+
+![reset-squash2](images/reset-squash-r3.png)
+
+## 检出
+
+* `git checkout <branch>`: HEAD指向分支
+
+![reset-checkout](images/reset-checkout.png)
+
+* `git checkout <commit> -- <file>`: 使用commit的文件快照覆盖暂存区和工作目录
+* `git checkout -- <file>`: 使用当前分支的文件快照覆盖暂存区和工作目录
 
 ## 提交历史
 
@@ -263,25 +350,22 @@ Other
   * `--no-merges` 仅显示未合并的提交
   * `--all-match` 满足所有条件的提交
 * 显示提交区间
-  * `git log <branch1>..<branch2>`: 显示branch1没有而branch2有的分支
+  * `git log <branch1>..<branch2>`: 显示branch1没有而branch2有的提交
+  * `git log <branch1>...<branch2>`: 显示branch1和branch2不共有的提交
+  * `git log <branch1...> --not <branch>`: 显示branch1...
+* 修改提交历史
+  * `git rebase -i <commit>`: 修改提交历史
+  * `git filter-branch`: 批量修改提交历史
 
 ## 标签
 
 * `git tag`: 显示所有标签
-* `git tab <tag>`: 创建轻量标签
-* `git tab -a <tag> -m "<message>"`: 创建附注标签
-* `git tab -a <tag> <commit>`: 给指定提交创建附注标签
+* `git tag <tag>`: 创建轻量标签
+* `git tag -a <tag> -m "<message>"`: 创建附注标签
+* `git tag -a <tag> -m "<message>" <commit>`: 给指定提交创建附注标签
+* `git tag -d <tag>`: 删除标签
 * `git push <remote-name> <tag>`: 推送某个标签
 * `git push <remote-name> --tags`: 推送所有标签
-
-## 提交信息
-
-* `git show <commit>`: 显示某个提交的详细信息
-* `git show <branch-name>`: 显示某个分支指向的提交的详细信息
-* `git show <tag>`: 显示某个标签指向的提交的详细信息
-* `git show <some-commit>~`: 显示某个提交的父提交的详细信息
-* `git show <some-commit>~<n>`: 显示某个提交的n代祖先提交的详细信息
-
 
 ## 远程仓库
 
@@ -290,9 +374,11 @@ Other
 * `git remote show <remote-name>`: 显示远程仓库的详细信息
 * `git remote add <remote-name> <repo>`: 添加远程仓库
 * `git remote rm <remote-name>`: 移除远程仓库
-* `git remote rename <remote-name1> <remote-name2>`: 重命名远程仓库
+* `git remote rename <remote-name1> <remote-name2>`: 
+* `git remote set-url <remote-name> <url>`: 修改远程仓库的url
 * `git fetch <remote-name>`: 抓取远程仓库所有分支的数据
 * `git fetch`: 抓取origin仓库所有分支的数据
+* `git fetch --all`: 抓取所有远程仓库所有分支的数据
 * `git fetch <remote-name> <remote-branch>`: 抓取远程仓库某个分支的数据
 * `git pull <remote-name> <remote-branch>:<local-branch>`: 抓取远程仓库某个分支的数据，并合并到本地仓库的某个分支
 * `git pull <remote-name> <remote-branch>`: 抓取远程仓库某个分支的数据，并合并到当前分支
@@ -331,8 +417,8 @@ Other
 * `git branch`: 查看本地分支
 * `git branch --merged`: 查看合并到当前分支的本地分支
 * `git branch --no-merged`: 查看未合并到当前分支的本地分支
-* `git branch -v`: 查看本地分支的指向的提交
-* `git branch -vv`: 查看本地分支的指向提交，并显示跟踪的远程分支
+* `git branch -v`: 查看本地分支指向的提交
+* `git branch -vv`: 查看本地分支指向提交，并显示跟踪的远程分支
 * `git branch -r`: 查看远程分支
 * `git branch -a`: 查看所有分支
 
@@ -362,6 +448,8 @@ Other
 
 * `git merge <branch-name> <other-branch>`: 合并分支到另一个分支
 * `git merge <branch-name>`: 合并分支到当前分支
+* `git merge --abort`: 中断合并
+* `git mergetool --tool-help`: 查看可用的合并工具
 
 ![合并分支](images/basic-rebase-2.png)
 
@@ -370,7 +458,7 @@ Other
 * `git rebase <base-branch> <branch-name>`: 将指定分支变基到基本分支上
 * `git rebase <base-branch>`: 将当前分支变基到基本分支上
 
-注：不要对在你的仓库外有副本的分支执行变基
+注：推送了的分支不要执行变基
 
 ![变基分支](images/interesting-rebase-4.png)
 
@@ -383,9 +471,35 @@ Other
 
 ### 跟踪远程分支
 
-* `git branch -u <local-branch> <remote-branch>`: 本地分支跟踪远程分支
+* `git branch -u  <remote-branch> <local-branch>`: 本地分支跟踪远程分支
 * `git branch -u <remote-branch>`: 当前分支跟踪远程分支
+* `git branch --unset-upstream <local-branch>`: 取消本地分支的跟踪
+* `git branch --unset-upstream`: 取消当前分支的跟踪
 
+
+# 签署
+
+通过GPG来签署和验证工作
+
+## GPG命令
+
+* `gpg --gen-key`: 生成gpg密钥对
+* `gpg --list-keys`: 查看gpg密钥对
+
+## 配置
+
+1. 本地执行`git config --global user.signingkey <pub>`命令，配置签署密钥
+2. 将gpg公钥放入git服务器的GPG钥匙链中
+
+## 常用命令
+
+* `git tag -s`: 签署标签
+* `git tag -v`: 验证签署标签
+* `git commit -S`: 签署提交
+* `git log --show-signature`: 签署提交历史
+* `git pull --verify-signature`: pull时验证是否是有效签署提交
+* `git merge --verify-signature`: merge时验证是否是有效签署提交
+* `git merge -S`: 签署合并提交
 
 # 工作流
 
@@ -400,14 +514,6 @@ Other
 ## 司令官与副官工作流
 
 ![司令官与副官工作流](images/benevolent-dictator.png)
-
-
-# 服务器Git
-
-* 本地协议： 基于共享文件系统
-* HTTP协议：推送时需要授权
-* SSH协议: 授权访问
-* Git协议: 无授权访问
 
 
 # GitHub
@@ -450,7 +556,7 @@ Git托管平台
 
 ### 添加合作者
 
-进入项目页，依次点击`settings/Collaborators`，添加合作者
+进入GitHub上的仓库页，依次点击`settings/Collaborators`，添加合作者
 
 ## 管理组织
 
