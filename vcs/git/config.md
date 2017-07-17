@@ -4,9 +4,9 @@
 
 下一级别覆盖上一级别
 
-* git目录/etc/config: 当前系统配置
-* ~/.gitconfig或~/.config/git/config: 当前用户配置
-* 当前仓库目录/.git/config: 当前仓库配置
+* `git目录/etc/config`: 当前系统配置
+* `~/.gitconfig或~/.config/git/config`: 当前用户配置
+* `当前仓库目录/.git/config`: 当前仓库配置
 
 ## 配置命令
 
@@ -25,11 +25,11 @@
 
 ### 文本编辑器
 
-* `git config --global core.editor <editor>`: 设置文本编辑器(editor为启动编辑器的命令)，默认为vi
+* `git config --global core.editor <editor>`: 设置文本编辑器(`editor`为启动编辑器的命令)，默认为`vi`
 
 ### 分页器
 
-* `git config --global core.pager <'' | less | more>`: 设置分页器，默认为less
+* `git config --global core.pager <'' | less | more>`: 设置分页器，默认为`less`
 
 ### 忽略文件
 
@@ -45,12 +45,12 @@
 
 ### 着色
 
-* `git config --global color.ui [auto | false | always]`: 是否着色，默认为auto
+* `git config --global color.ui [auto | false | always]`: 是否着色，默认为`auto`
 * `git conifg --global color.[branch|diff|interactive|status] '<foreground background font>'`: 着什么色
 
 ### 合并和比较工具
 
-1. 使用chocolatey安装P4Merge
+1. 使用`chocolatey`安装`P4Merge`
 2. 配置合并和比较工具
 3. 使用`git difftool`命令进行比较，使用`git mergetool`解决合并冲突
 
