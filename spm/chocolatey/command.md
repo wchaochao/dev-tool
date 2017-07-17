@@ -35,6 +35,7 @@ Commands
 * `choco search [package] -l`：本地搜索软件包
 * `choco search -la`：本地搜索全部软件
 * `choco info [package] -l`：显示本地软件的详细信息
+* `choco feature enable -n=allowGlobalConfirmation`: 安装时直接安装，无需再确认
 * `choco install [package1, package2...]`：安装一个或多个软件
 * `choco install [package] --version [version]`：安装某个版本的软件
 * `choco uninstall [package1, package2...]`：卸载一个或多个软件

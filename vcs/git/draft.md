@@ -1,171 +1,11 @@
-# Git
 
-分布式版本控制系统
+# 忽略文件和属性文件
 
-## 目录
-
-## 参考资料
-
-* [git-book](https://github.com/ninghao/git-book)
-* [Pro Git](https://bingohuang.gitbooks.io/progit2/content/)
-
-
-# 特点
-
-## 直接记录快照，而非差异比较
-
-差异流
-
-![差异流](images/deltas.png)
-
-快照流
-
-![快照流](images/snapshots.png)
-
-## 近乎所有操作都是本地执行
-
-本地磁盘上上有项目的完整历史，所以绝大多数操作都在本地进行
-
-
-# 概念
-
-## 工作区域
-
-* 工作目录：本地工作的地方
-* 暂存区域：暂存修改的文件快照
-* 本地仓库：存储提交对象
-* 远程仓库：推送或抓取数据
-
-![工作区域](images/areas.png)
-
-## 工作流程
-
-1. 修改文件：在工作目录中修改文件
-
-![修改文件](images/reset-ex4.png)
-
-2. 暂存文件：将修改的文件添加到暂存区域
-
-![暂存文件](images/reset-ex5.png)
-
-3. 提交更新：将暂存区域的快照存储到本地仓库中
-
-![提交更新](images/reset-ex6.png)
-
-4. 远程交互：将本地提交推送到远程仓库或从远程仓库获取提交
-
-![远程交互](images/remote-operate.jpg)
-
-## 文件状态
-
-* 未跟踪：未纳入git管理
-* 已跟踪：已纳入git管理
-  * 未修改：未做修改
-  * 已修改：作了修改但还未添加到暂存区域
-  * 已暂存：作了修改并添加到暂存区域
-
-![文件状态](images/lifecycle.png)
-
-## 模式
-
-* 命令行：使用命令行操作Git
-* GUI：使用GUI界面操作Git
-
-
-# 安装
-
-## 在windows上安装
-
-有几种安装方法
-
-* 安装[cmder](http://cmder.net/)的full版本
-* 安装[msysgit](https://git-for-windows.github.io/)
-* 安装[GitHub for Windows](https://desktop.github.com/)
-
-
-# 配置
-
-## 优先级
-
-下一级别覆盖上一级别
-
-* git目录/etc/config: 当前系统配置
-* ~/.gitconfig或~/.config/git/config: 当前用户配置
-* 当前仓库目录/.git/config: 当前仓库配置
-
-## 配置命令
-
-* `git config --system`: 当前系统配置
-* `git config --global`: 当前用户配置
-* `git config`: 当前仓库配置
-* `git config -l`: 查看所有配置
-* `git config -e`: 编辑配置文件
-
-## 常用配置
-
-### 用户名和邮箱
-
-* `git config --global user.name "<username>"`: 设置用户名
-* `git config --global user.email <useremail>`: 设置邮箱
-
-### 文本编辑器
-
-* `git config --global core.editor <editor>`: 设置文本编辑器(editor为启动编辑器的命令)，默认为vi
-
-### 分页器
-
-* `git config --global core.pager ['' | less | more]`: 设置分页器，默认为less
-
-### 忽略文件
-
-* `git config --global core.excludesfile <file>`: 设置全局忽略文件
-
-### 提交信息模板
-
-* `git config --global commit.template <file>`: 设置提交信息模板
-
-### 着色
-
-* `git config --global color.ui [auto | false | always]`: 是否着色，默认为auto
-* `git conifg --global color.[branch|diff|interactive|status] '<foreground background font>'`: 着什么色
-
-### 合并和比较工具
-
-### GPG签署密钥
-
-* `git config --global user.signingkey <gpg-key-id>`: 设置GPG签署密钥
-
-### 凭证
-
-使用HTTP协议连接时，需要提供凭证，默认每次连接都询问用户名和密码
-
-* `git config --global credential.helper cache --timeout <n>`: 将凭证存放到内存中一段时间
-* `git config --global credential.helper --file <path>`: 将凭证明文存放到文件中
-
-### SSH
-
-使用SSH连接时，需要将本机的SSH公钥提供给git服务器，每次连接都不需凭证
-
-1. 执行`ssh --gen-key`命令，生成SSH密钥对
-2. 将SSH公钥提供给git服务器
-
-### 别名
-
-* `git config --global alias.st status`
-* `git config --global alias.ci commit`
-* `git config --global alias.br branch`
-* `git config --global alias.co checkout`
-* `git config --global alias.unstage 'reset HEAD'`
-* `git config --global alias.undo 'checkout --'`
-* `git config --global alias.last 'log -1'`
-* `git conifg --global alias.lg 'log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Cre'`
-
-
-# 忽略文件
+## 忽略文件
 
 在.gitignore中列出要忽略的文件
 
-## 规范
+### 规范
 
 * 忽略空行和`#`开头的行
 * 采用glob模式匹配
@@ -176,6 +16,36 @@
 * `/`开头防止递归
 * `/`结尾指定目录
 * `!`表示不忽略
+
+## 属性文件
+
+在.gitattributes中针对特定的路径配置某些设置项
+
+### 识别二进制文件
+
+```
+*.pbxproj binary
+```
+
+### 比较二进制文件
+
+```
+*.docx diff=word
+
+git config diff.word.textconv docx2txt
+```
+
+### 导出忽略
+
+```
+test/ export-ignore
+```
+
+### 合并策略
+
+```
+database.xml merge=ours
+```
 
 
 # 基本命令
@@ -352,7 +222,7 @@ git commit -m '合并提交'
 * 显示提交区间
   * `git log <branch1>..<branch2>`: 显示branch1没有而branch2有的提交
   * `git log <branch1>...<branch2>`: 显示branch1和branch2不共有的提交
-  * `git log <branch1...> --not <branch>`: 显示branch1...
+  * `git log <branch1...> --not <branch>`: 显示branch1...有而branch没有的提交
 * 修改提交历史
   * `git rebase -i <commit>`: 修改提交历史
   * `git filter-branch`: 批量修改提交历史
@@ -360,9 +230,9 @@ git commit -m '合并提交'
 ## 标签
 
 * `git tag`: 显示所有标签
-* `git tag <tag>`: 创建轻量标签
-* `git tag -a <tag> -m "<message>"`: 创建附注标签
+* `git tag <tag>`: 给当前分支指向的提交创建轻量标签
 * `git tag -a <tag> -m "<message>" <commit>`: 给指定提交创建附注标签
+* `git tag -a <tag> -m "<message>"`: 给当前分支指向的提交创建附注标签
 * `git tag -d <tag>`: 删除标签
 * `git push <remote-name> <tag>`: 推送某个标签
 * `git push <remote-name> --tags`: 推送所有标签
@@ -374,7 +244,7 @@ git commit -m '合并提交'
 * `git remote show <remote-name>`: 显示远程仓库的详细信息
 * `git remote add <remote-name> <repo>`: 添加远程仓库
 * `git remote rm <remote-name>`: 移除远程仓库
-* `git remote rename <remote-name1> <remote-name2>`: 
+* `git remote rename <remote-name1> <remote-name2>`: 重命名远程仓库
 * `git remote set-url <remote-name> <url>`: 修改远程仓库的url
 * `git fetch <remote-name>`: 抓取远程仓库所有分支的数据
 * `git fetch`: 抓取origin仓库所有分支的数据
@@ -389,6 +259,12 @@ git commit -m '合并提交'
 * `git push <remote-name> <local-branch>`: 将本地分支推送到跟踪的远程分支
 * `git push <remote-name>`: 将当前分支推送到跟踪的远程分支
 * `git push`: 将当前分支推送到唯一跟踪的远程分支
+
+## gui界面
+
+* `gitk -all`: 界面显示所有提交历史
+* `git gui`: 打开gui界面
+
 
 # 分支
 
@@ -501,6 +377,69 @@ git commit -m '合并提交'
 * `git merge --verify-signature`: merge时验证是否是有效签署提交
 * `git merge -S`: 签署合并提交
 
+
+# 底层命令
+
+底层命令反应Git内部的工作机制
+
+## .git目录结构
+
+```
+HEAD: 当前分支
+index: 暂存区
+objects: 存储数据
+refs: 引用
+config: 当前仓库配置
+hooks: Git钩子
+```
+
+## Git对象
+
+### 存储
+
+1. 生成头部信息，`header='<类型> <长度>\u0000'`
+2. 拼接头部信息和原始数据，`store=header+content`
+3. 计算SHA-1值，`sha1 = Digest::SHA1.hexdigest(store)`
+4. 压缩内容，`zlib_content = Zlib::Deflate.deflate(store)`
+5. 写入磁盘，`path = '.git/objects/' + sha1[0,2] + '/' + sha1[2,38]`
+
+### 命令
+
+* `git hash-object -w <file>`: 将文件转换为blob对象存储，返回对应hash键值
+* `git update-index [--add] <file>`: 更新暂存区
+* `git write-tree`: 暂存区生成tree对象
+* `echo '<message>' | git commit-tree <tree-hash> -p <parent-hash>`: 生成commit对象
+* `git cat-file -p <hash>`: 查看hash键值对应的文件对象、树对象、提交对象
+
+## Git引用
+
+* `git update-ref refs/heads/master <commit-hash>`: 设置master分支指向某个提交对象
+* `git symbolic-ref HEAD refs/heads/master`: 设置HEAD指向master分支
+* `git update-ref refs/tags/v1.0 <commit-hash>`: 设置轻量标签永久指向某个提交对象
+* `cat .git/refs/remotes/origin/master`: 查看只读的远程引用
+
+## 包文件
+
+* `git gc`: 打包对象
+* `git verify-pack -v .git/objects/pack/pack-978e03944f5c581011e6998cd0e9e30000905586.idx`: 查看已打包的内容
+
+## 引用规格
+
+```
+[remote "origin"]
+  url = https://github.com/schacon/simplegit-progit // 远程仓库地址
+  fetch = +refs/heads/*:refs/remotes/origin/* //fetch时默认将远程版本库中refs/heads/*的引用导入到本地的refs/remotes/origin位置
+  push = refs/heads/master:refs/heads/qa/master //push是默认将本地refs/heads/master章的引用导入到远程版本库的refs/heads/qa/master位置
+```
+
+## 数据维护
+
+* `git gc`: 打包对象
+* `git reflog`: 查看HEAD引用日志
+* `git log -g`: 查看HEAD引用日志详情
+* `git fsck --full`: 查看未被引用的数据对象
+* `git filter-branch`: 批量修改提交历史
+
 # 工作流
 
 ## 集中式工作流
@@ -550,7 +489,7 @@ Git托管平台
 
 #### SSH访问
 
-1. 执行`ssh-genkey`命令，生成`id_rsa`私钥，`id_rsa.pub`公钥的密钥对
+1. 执行`ssh-keygen`命令，生成`id_rsa`私钥，`id_rsa.pub`公钥的密钥对
 2. 访问<https://github.com>，依次点击`settings/SSH and GPG keys/New SSH Key`，Key中填写id_rsa.pub的内容
 3. 使用`git@github.com:<username>/<repo>`地址访问版本库
 
