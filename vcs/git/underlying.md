@@ -49,7 +49,7 @@ hooks: Git钩子
 [remote "origin"]
   url = https://github.com/schacon/simplegit-progit // 远程仓库地址
   fetch = +refs/heads/*:refs/remotes/origin/* //fetch时默认将远程版本库中refs/heads/*的引用导入到本地的refs/remotes/origin位置
-  push = refs/heads/master:refs/heads/qa/master //push是默认将本地refs/heads/master章的引用导入到远程版本库的refs/heads/qa/master位置
+  push = refs/heads/master:refs/heads/qa/master //push时默认将本地refs/heads/master章的引用导入到远程版本库的refs/heads/qa/master位置
 ```
 
 ## 数据维护

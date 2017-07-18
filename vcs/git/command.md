@@ -19,16 +19,16 @@
 
 * `git status`: 当前工作目录状态
 * `git status -s`: 当前工作目录的简要状态
-  * ?? 未跟踪文件
-  * A 跟踪新文件
-  * _M 已修改但未暂存
-  * M_ 修改并暂存
-  * MM 暂存但又修改了
-  * AM 跟踪新文件但又修改了
-  * _D 删除文件但未暂存
-  * D_ 删除文件并暂存
-  * _R 重命名文件但未暂存
-  * R_ 重命名文件并暂存
+  * `??` 未跟踪文件
+  * `A` 跟踪新文件
+  * `_M` 已修改但未暂存
+  * `M_` 修改并暂存
+  * `MM` 暂存但又修改了
+  * `AM` 跟踪新文件但又修改了
+  * `_D` 删除文件但未暂存
+  * `D_` 删除文件并暂存
+  * `_R` 重命名文件但未暂存
+  * `R_` 重命名文件并暂存
 
 ## 比较
 
@@ -53,7 +53,7 @@
 ## 暂存
 
 * `git add <path...>`: 跟踪新文件或暂存已修改的文件
-* `git add .`: 跟踪本目录下的新文件或暂存本目录下的已修改文件
+* `git add .`: 跟踪本目录下的新文件或暂存本目录下已修改的文件
 * `git add --all`: 跟踪所有新文件或暂存所有已修改的文件
 * `git add -p`: 暂存文件的一部分
 * `git add -i`: 进入暂存交互界面
@@ -66,10 +66,11 @@
 * `git stash`: 储藏跟踪的修改和暂存
 * `git stash -u`: 储藏未跟踪的修改
 * `git stash -all`: 储藏所有修改和暂存
-* `git stash --keep-index`: 储藏未暂存的跟踪的修改
+* `git stash --keep-index`: 储藏未暂存的跟踪修改
 * `git stash --patch`: 选择要储藏的改动
 * `git stash list`: 查看储藏
 * `git stash show stash@{<n>}`: 查看某个储藏
+* `git stash show stash@{<n>`}: 查看最近的储藏
 * `git stash apply stash@{<n>}`: 应用某个储藏的修改
 * `git stash apply`: 应用最近储藏的修改
 * `git stash apply --index stash@{<n>}`: 应用某个储藏的暂存
@@ -108,7 +109,7 @@
 
 ![reset-soft](images/reset-soft.png)
 
-* `git reset --mixed <commit>`: 当前分支指向commit，并用commit的文件快照覆盖暂存区
+* `git reset --mixed <commit>`: 当前分支指向commit，并用commit的文件快照覆盖暂存区，默认为`--mixed`
 
 ![reset-mixed](images/reset-mixed.png)
 
@@ -116,7 +117,7 @@
 
 ![reset-hard](images/reset-hard.png)
 
-* `git reset <commit> <path>`: 使用commit中的指定文件快照覆盖暂存区对应的文件
+* `git reset <commit> -- <path>`: 使用commit中的指定文件快照覆盖暂存区对应的文件
 
 ![reset-path](images/reset-path3.png)
 
@@ -149,10 +150,10 @@ git commit -m '合并提交'
 * `git log --decorate`: 显示提交和分支
 * `git log --abbrev-commit`: 显示简短的SHA-1值
 * `git log --pretty=<format>`: 指定显示的格式
-  * `oneline` 一行显示commit, message
-  * `short` 分行显示commit, Author, message
-  * `full` 分行显示commit, Author, Commit, message
-  * `fuller` 分行显示commit, Author, AuthorDate, Commit, CommitDate, message
+  * `oneline` 一行显示`commit, message`
+  * `short` 分行显示`commit, Author, message`
+  * `full` 分行显示`commit, Author, Commit, message`
+  * `fuller` 分行显示`commit, Author, AuthorDate, Commit, CommitDate, message`
   * `format: <options>` 自定义格式
     * `%H|%h` commit的完整|简短哈希字符串
     * `%T|%t` tree的完整|简短哈希字符串
@@ -189,15 +190,15 @@ git commit -m '合并提交'
 
 ## 远程仓库
 
-* `git remote`: 远程仓库名
-* `git remote -v`: 远程仓库名和url
+* `git remote`: 显示远程仓库名
+* `git remote -v`: 显示远程仓库名和url
 * `git remote show <remote-name>`: 显示远程仓库的详细信息
 * `git remote add <remote-name> <repo>`: 添加远程仓库
 * `git remote rm <remote-name>`: 移除远程仓库
 * `git remote rename <remote-name1> <remote-name2>`: 重命名远程仓库
 * `git remote set-url <remote-name> <url>`: 修改远程仓库的url
 * `git fetch <remote-name>`: 抓取远程仓库所有分支的数据
-* `git fetch`: 抓取origin仓库所有分支的数据
+* `git fetch`: 抓取`origin`仓库所有分支的数据
 * `git fetch --all`: 抓取所有远程仓库所有分支的数据
 * `git fetch <remote-name> <remote-branch>`: 抓取远程仓库某个分支的数据
 * `git pull <remote-name> <remote-branch>:<local-branch>`: 抓取远程仓库某个分支的数据，并合并到本地仓库的某个分支

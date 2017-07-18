@@ -38,7 +38,7 @@ Git托管平台
 
 ### 添加合作者
 
-进入GitHub上的仓库页，依次点击`settings/Collaborators`，添加合作者
+进入GitHub上的某个仓库页，依次点击`settings/Collaborators`，添加合作者
 
 ## 管理组织
 
