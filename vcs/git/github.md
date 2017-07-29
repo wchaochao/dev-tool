@@ -1,6 +1,6 @@
 # GitHub
 
-Git托管平台
+`Git`托管平台
 
 ## 注册
 
@@ -11,7 +11,7 @@ Git托管平台
 
 ## 派生项目
 
-1. 找到想要派生的GitHub项目，点击`Fork`按钮，会在自己的Github上创建一个副本仓库
+1. 找到想要派生的`GitHub`项目，点击`Fork`按钮，会在自己的Github上创建一个副本仓库
 2. 克隆仓库到本地
 3. 创建新的分支，在该分支上进行修改，并推送到仓库中
 4. 点击`Pull Request`按钮，将合并请求发送给项目的拥有者
@@ -38,7 +38,7 @@ Git托管平台
 
 ### 添加合作者
 
-进入GitHub上的某个仓库页，依次点击`settings/Collaborators`，添加合作者
+进入`GitHub`上的某个仓库页，依次点击`settings/Collaborators`，添加合作者
 
 ## 管理组织
 

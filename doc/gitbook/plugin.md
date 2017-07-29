@@ -1,6 +1,6 @@
 # 插件
 
-gitbook的扩展功能
+`gitbook`的扩展功能
 
 ## 查找插件
 
@@ -8,8 +8,8 @@ gitbook的扩展功能
 
 ## 安装插件
 
-1. 在book.json中添加插件和插件配置
-2. 使用gitbook install命令安装插件
+1. 在`book.json`中添加插件和插件配置
+2. 使用`gitbook install`命令安装插件
 
 ## 默认插件
 
@@ -23,7 +23,7 @@ gitbook的扩展功能
 
 ### [Disqus](https://plugins.gitbook.com/plugin/disqus)
 
-添加disqus评论
+添加`disqus`评论
 
 ```json
 {
@@ -88,7 +88,7 @@ gitbook的扩展功能
 
 ### [Github Buttons](https://plugins.gitbook.com/plugin/github-buttons)
 
-添加github的star, watch, fork按钮
+添加`github`的`star`, `watch`, `fork`按钮
 
 ```json
 {
@@ -123,7 +123,7 @@ gitbook的扩展功能
 
 ### [Sharing](https://plugins.gitbook.com/plugin/sharing)
 
-分享，gitbook的默认插件
+分享，`gitbook`的默认插件
 
 ```json
 {
@@ -227,7 +227,7 @@ gitbook的扩展功能
 
 ### [Anchors](https://plugins.gitbook.com/plugin/anchors)
 
-添加Github风格的锚点样式
+添加`Github`风格的锚点样式
 
 ```json
 {

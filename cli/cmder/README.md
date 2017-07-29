@@ -1,6 +1,6 @@
 # cmder
 
-Windows下的命令行工具，比cmd, PowerShell更强大
+Windows下的命令行工具，比`cmd`, `PowerShell`更强大
 
 ## 目录
 
@@ -8,6 +8,7 @@ Windows下的命令行工具，比cmd, PowerShell更强大
 * [常用功能](feature.md)
 * [命令行基础](base.md)
 * [常用命令](common.md)
+* [命令行配置](config.md)
 
 ## 参考资料
 

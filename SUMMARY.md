@@ -8,6 +8,7 @@
     * [常用功能](cli/cmder/feature.md)
     * [命令行基础](cli/cmder/base.md)
     * [常用命令](cli/cmder/common.md)
+    * [命令行配置](cli/cmder/config.md)
 * [软件包管理](spm/README.md)
   * [chocolatey](spm/chocolatey/README.md)
     * [安装](spm/chocolatey/install.md)

@@ -1,6 +1,6 @@
 # Markdown
 
-Gitbook默认使用[Markdown](../markdown/README.md)语法并有所扩展
+`Gitbook`默认使用[Markdown](../markdown/README.md)语法并有所扩展
 
 ## 扩展
 

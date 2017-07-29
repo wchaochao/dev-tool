@@ -1,8 +1,8 @@
 # 安装
 
-依赖：nodejs, npm
+依赖：`nodejs`, `npm`
 
-## 安装gitbook-cli{#install}
+## 安装gitbook-cli
 
 ```
 安装
@@ -14,7 +14,7 @@ gitbook -V
 
 ## gitbook-cli命令
 
-gitbook help查看gitbook命令
+`gitbook help`: 查看`gitbook`命令
 
 ```
     build [book] [output]       build a book
@@ -52,7 +52,7 @@ gitbook help查看gitbook命令
 
 ```
 
-gitbook -h查看gitbook-cli命令
+`gitbook -h`: 查看`gitbook-cli`命令
 
 ```
 
@@ -86,7 +86,7 @@ gitbook -h查看gitbook-cli命令
 * `gitbook build`: 编译
 * `gitbook serve`: 在线预览
 
-gitbook serve命令在windows平台下经常出错，使用gulpfile.js代替
+`gitbook serve`命令在windows平台下经常出错，使用`gulpfile.js`代替
 
 ```js
 var browserSync = require('browser-sync').create()

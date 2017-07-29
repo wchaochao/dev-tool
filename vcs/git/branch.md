@@ -66,7 +66,7 @@
 * `git rebase <base-branch> <branch-name>`: 将指定分支变基到基本分支上
 * `git rebase <base-branch>`: 将当前分支变基到基本分支上
 
-注：推送了的分支不要执行变基
+**注：**推送了的分支不要执行变基
 
 ![变基分支](images/interesting-rebase-4.png)
 

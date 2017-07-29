@@ -2,8 +2,8 @@
 
 ## 帮助
 
-* 帮助信息：`[command] --help`
-* 使用手册：`man [command]`
+* 帮助信息：`<command> --help`
+* 使用手册：`man <command>`
 * 解释：<https://explainshell.com/>
 
 ## 工作目录

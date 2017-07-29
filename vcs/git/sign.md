@@ -1,11 +1,11 @@
 # 签署
 
-通过GPG来签署和验证工作
+通过`GPG`来签署和验证工作
 
 ## GPG命令
 
-* `gpg --gen-key`: 生成gpg密钥对
-* `gpg --list-keys`: 查看gpg密钥对
+* `gpg --gen-key`: 生成`gpg`密钥对
+* `gpg --list-keys`: 查看`gpg`密钥对
 
 ## 配置
 
@@ -18,6 +18,6 @@
 * `git tag -v`: 验证签署标签
 * `git commit -S`: 签署提交
 * `git log --show-signature`: 签署提交历史
-* `git pull --verify-signature`: pull时验证是否是有效签署提交
-* `git merge --verify-signature`: merge时验证是否是有效签署提交
+* `git pull --verify-signature`: `pull`时验证是否是有效签署提交
+* `git merge --verify-signature`: `merge`时验证是否是有效签署提交
 * `git merge -S`: 签署合并提交

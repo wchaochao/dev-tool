@@ -6,16 +6,16 @@
 * `GLOSSARY.md`: 术语清单
 * `cover.jpg`: 大封面
 * `cover_small.jpg`: 小封面
-* `.gitignore`: git的忽略文件
-* `.bookignore`: book的忽略文件
+* `.gitignore`: `git`的忽略文件
+* `.bookignore`: `book`的忽略文件
 * `.ignore`: 忽略文件
 * `book.json`: 配置文件
 
 ## README.md
 
 * 书本介绍
-* 若不在SUMMARY中，会自动添加为SUMMARY的第一个章节
-* 可在book.json中设置README.md的替换文件
+* 若不在`SUMMARY`中，会自动添加为`SUMMARY`的第一个章节
+* 可在`book.json`中设置`README`的路径
 
 ```json
 {
@@ -69,14 +69,12 @@
 
 ## 封面
 
-可以使用autocover插件来生成封面
+可以使用`autocover`插件来生成封面
 
-```markdown
 |                     |     大      |       小          |
 |:-------------------:|:-----------:|:-----------------:|
 |       **文件**      | `cover.jpg` | `cover_small.jpg` |
 |    **大小(像素)**   |  1800x2360  |      200x262      |
-```
 
 ## 忽略文件
 

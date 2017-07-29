@@ -1,6 +1,6 @@
 # 模板
 
-Gitbook使用Numjunks和的模板语法
+`Gitbook`使用`Numjunks`模板语法
 
 ## 原样输出
 
@@ -14,19 +14,19 @@ Gitbook使用Numjunks和的模板语法
 
 ## 全局变量
 
-* `gitbook`: gitbook信息
+* `gitbook`: `gitbook`信息
 * `page`: 当前页信息
 * `file`: 当前文件信息
-* `readme`: README信息
-* `summary`: SUMMARY信息
-* `languages`: LANGS信息
-* `glossary`: GLOSSARY信息
-* `book`: book.json中的配置信息
+* `readme`: `README`信息
+* `summary`: `SUMMARY`信息
+* `languages`: `LANGS`信息
+* `glossary`: `GLOSSARY`信息
+* `book`: `book.json`中的配置信息
 
 ### Gitbook变量
 
-* `gitbook.time`: gitbook的运行时间
-* `gitbbok.version`: gitbook的版本号
+* `gitbook.time`: `gitbook`的运行时间
+* `gitbbok.version`: `gitbook`的版本号
 
 ### page变量
 
@@ -48,7 +48,7 @@ Gitbook使用Numjunks和的模板语法
 
 ### readme变量
 
-* `readme.path`: README的文件路径
+* `readme.path`: `README`的文件路径
 
 ### summary变量
 
@@ -60,12 +60,12 @@ Gitbook使用Numjunks和的模板语法
 
 ### glossary变量
 
-* `golssary.path`: GLOSSARY的文件路径
+* `golssary.path`: `GLOSSARY`的文件路径
 
 ### book变量
 
-* `book.language`: book.json中的语言设置
-* `book.[value]`: book.json中的变量设置
+* `book.language`: `book.json`中的语言设置
+* `book.[variable]`: `book.json`中的变量设置
 
 ```json
 {

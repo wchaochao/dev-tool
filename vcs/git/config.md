@@ -46,7 +46,7 @@
 ### 着色
 
 * `git config --global color.ui [auto | false | always]`: 是否着色，默认为`auto`
-* `git conifg --global color.[branch|diff|interactive|status] '<foreground background font>'`: 着什么色
+* `git conifg --global color.<branch|diff|interactive|status> '<foreground background font>'`: 着什么色
 
 ### 合并和比较工具
 
@@ -64,21 +64,21 @@ git config --global mergetool.p4merge.path <p4merge.exe路径>
 
 ### GPG签署密钥
 
-* `git config --global user.signingkey <gpg-key-id>`: 设置GPG签署密钥
+* `git config --global user.signingkey <gpg-key-id>`: 设置``GPG`签署密钥
 
 ### 凭证
 
-使用HTTP协议连接时，需要提供凭证，默认每次连接都询问用户名和密码
+使用`HTTP`协议连接时，需要提供凭证，默认每次连接都询问用户名和密码
 
 * `git config --global credential.helper cache --timeout <n>`: 将凭证存放到内存中一段时间
 * `git config --global credential.helper --file <path>`: 将凭证明文存放到文件中
 
 ### SSH
 
-使用SSH连接时，需要将本机的SSH公钥提供给git服务器，每次连接都不需凭证
+使用`SSH`连接时，需要将本机的`SSH`公钥提供给`git`服务器，每次连接都不需凭证
 
-1. 执行`ssh-keygen`命令，生成SSH密钥对
-2. 将SSH公钥提供给git服务器
+1. 执行`ssh-keygen`命令，生成`SSH`密钥对
+2. 将`SSH`公钥提供给`git`服务器
 
 ### 别名
 
@@ -93,4 +93,4 @@ git config --global mergetool.p4merge.path <p4merge.exe路径>
 
 ### 中文乱码
 
-* `git config --global gui.encoding utf-8`: gui中文乱码
+* `git config --global gui.encoding utf-8`: `gui`中文乱码

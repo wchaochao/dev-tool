@@ -7,7 +7,7 @@
     @powershell -NoProfile -ExecutionPolicy Bypass -Command "iex ((new-object net.webclient).DownloadString('https://chocolatey.org/install.ps1'))" && SET PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin
     ```
 
-3. 将`choco.exe`存放的目录添加到系统环境变量中
+3. 将`choco.exe`存放的目录添加到环境变量`Path`中
 
 ## 自定义软件安装位置
 

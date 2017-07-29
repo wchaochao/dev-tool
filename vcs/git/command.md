@@ -7,10 +7,10 @@
 
 ## 获取Git仓库
 
-* `git init`: 当前目录初始化git仓库
-* `git init <dir>`: 指定目录初始化git仓库
-* `git clone <repo>`: 当前目录克隆git仓库
-* `git clone <repo> <dir>`: 指定目录克隆git仓库
+* `git init`: 当前目录初始化`git`仓库
+* `git init <dir>`: 指定目录初始化`git`仓库
+* `git clone <repo>`: 当前目录克隆`git`仓库
+* `git clone <repo> <dir>`: 指定目录克隆`git`仓库
 * `git clone -b <branch-name> <repo>`: 指定克隆分支
 * `git clone -o <remote-name> <repo>`: 指定远程仓库名
 * `git clone -c <key=value> <repo>`: 指定仓库配置
@@ -55,7 +55,7 @@
 * `git add <path...>`: 跟踪新文件或暂存已修改的文件
 * `git add .`: 跟踪本目录下的新文件或暂存本目录下已修改的文件
 * `git add --all`: 跟踪所有新文件或暂存所有已修改的文件
-* `git add -p`: 暂存文件的一部分
+* `git add -p`: 选择暂存文件的一部分
 * `git add -i`: 进入暂存交互界面
 * `git rm <path...>`: 删除文件并暂存
 * `git rm --cached <path...>`: 删除暂存区的文件
@@ -70,7 +70,7 @@
 * `git stash --patch`: 选择要储藏的改动
 * `git stash list`: 查看储藏
 * `git stash show stash@{<n>}`: 查看某个储藏
-* `git stash show stash@{<n>`}: 查看最近的储藏
+* `git stash show: 查看最近的储藏
 * `git stash apply stash@{<n>}`: 应用某个储藏的修改
 * `git stash apply`: 应用最近储藏的修改
 * `git stash apply --index stash@{<n>}`: 应用某个储藏的暂存
@@ -101,23 +101,23 @@
 * `git show <branch-name>`: 显示某个分支指向的提交的详细信息
 * `git show <tag>`: 显示某个标签指向的提交的详细信息
 * `git show <commit>~`: 显示某个提交的父提交的详细信息
-* `git show <commit>~<n>`: 显示某个提交的n代祖先提交的详细信息
+* `git show <commit>~<n>`: 显示某个提交的`n`代祖先提交的详细信息
 
 ## 回滚
 
-* `git reset --soft <commit>`: 当前分支指向commit
+* `git reset --soft <commit>`: 当前分支指向`commit`
 
 ![reset-soft](images/reset-soft.png)
 
-* `git reset --mixed <commit>`: 当前分支指向commit，并用commit的文件快照覆盖暂存区，默认为`--mixed`
+* `git reset --mixed <commit>`: 当前分支指向`commit`，并用`commit`的文件快照覆盖暂存区，默认为`--mixed`
 
 ![reset-mixed](images/reset-mixed.png)
 
-* `git reset --hard <commit>`: 当前分支指向commit，并用coomit的文件快照覆盖暂存区，再用暂存区的文件快照覆盖工作目录
+* `git reset --hard <commit>`: 当前分支指向`commit`，并用`coomit`的文件快照覆盖暂存区，再用暂存区的文件快照覆盖工作目录
 
 ![reset-hard](images/reset-hard.png)
 
-* `git reset <commit> -- <path>`: 使用commit中的指定文件快照覆盖暂存区对应的文件
+* `git reset <commit> -- <path>`: 使用`commit`中的指定文件快照覆盖暂存区对应的文件
 
 ![reset-path](images/reset-path3.png)
 
@@ -134,11 +134,11 @@ git commit -m '合并提交'
 
 ## 检出
 
-* `git checkout <branch>`: HEAD指向分支
+* `git checkout <branch>`: `HEAD`指向分支
 
 ![reset-checkout](images/reset-checkout.png)
 
-* `git checkout <commit> -- <file>`: 使用commit的文件快照覆盖暂存区和工作目录
+* `git checkout <commit> -- <file>`: 使用`commit`的文件快照覆盖暂存区和工作目录
 * `git checkout -- <file>`: 使用当前分支的文件快照覆盖暂存区和工作目录
 
 ## 提交历史
@@ -148,32 +148,32 @@ git commit -m '合并提交'
 * `git log --stat`: 显示每次提交的简要更改信息
 * `git log --graph`: 图表显示
 * `git log --decorate`: 显示提交和分支
-* `git log --abbrev-commit`: 显示简短的SHA-1值
+* `git log --abbrev-commit`: 显示简短的`SHA-1`值
 * `git log --pretty=<format>`: 指定显示的格式
-  * `oneline` 一行显示`commit, message`
-  * `short` 分行显示`commit, Author, message`
-  * `full` 分行显示`commit, Author, Commit, message`
-  * `fuller` 分行显示`commit, Author, AuthorDate, Commit, CommitDate, message`
+  * `oneline`: 一行显示`commit, message`
+  * `short`: 分行显示`commit, Author, message`
+  * `full`: 分行显示`commit, Author, Commit, message`
+  * `fuller`: 分行显示`commit, Author, AuthorDate, Commit, CommitDate, message`
   * `format: <options>` 自定义格式
-    * `%H|%h` commit的完整|简短哈希字符串
-    * `%T|%t` tree的完整|简短哈希字符串
-    * `%P|%p` parent的完整|简短哈希字符串
-    * `%an|%ae|%ad|%ar` 作者名字|邮箱|提交日期(--date= 时间格式)|提交日期(按多久以前的方式显示)
-    * `%cn|%ce|%cd|%cr` 提交者名字|邮箱|提交日期(--date= 时间格式)|提交日期(按多久以前的方式显示)
-    * `%s` message
-* `git log <filter>` 筛选提交历史
-  * `-<n>` 仅显示最近的 n 条提交
-  * `--since|--after` 仅显示指定时间之后的提交
-  * `--until|--before` 仅显示指定时间之前的提交
-  * `--author` 仅显示指定作者相关的提交
-  * `--committer` 仅显示指定提交者相关的提交
-  * `--grep` 仅显示含指定关键字的提交
-  * `--no-merges` 仅显示未合并的提交
-  * `--all-match` 满足所有条件的提交
+    * `%H|%h`: `commit`的完整|简短哈希字符串
+    * `%T|%t`: `tree`的完整|简短哈希字符串
+    * `%P|%p`: `parent`的完整|简短哈希字符串
+    * `%an|%ae|%ad|%ar`: 作者名字|邮箱|提交日期(`--date= 时间格式`)|提交日期(按多久以前的方式显示)
+    * `%cn|%ce|%cd|%cr`: 提交者名字|邮箱|提交日期(`--date= 时间格式`)|提交日期(按多久以前的方式显示)
+    * `%s`: `message`
+* `git log <filter>`: 筛选提交历史
+  * `-<n>`: 仅显示最近的`n`条提交
+  * `--since|--after`: 仅显示指定时间之后的提交
+  * `--until|--before`: 仅显示指定时间之前的提交
+  * `--author`: 仅显示指定作者相关的提交
+  * `--committer`: 仅显示指定提交者相关的提交
+  * `--grep`: 仅显示含指定关键字的提交
+  * `--no-merges`: 仅显示未合并的提交
+  * `--all-match`: 满足所有条件的提交
 * 显示提交区间
-  * `git log <branch1>..<branch2>`: 显示branch1没有而branch2有的提交
-  * `git log <branch1>...<branch2>`: 显示branch1和branch2不共有的提交
-  * `git log <branch1...> --not <branch>`: 显示branch1...有而branch没有的提交
+  * `git log <branch1>..<branch2>`: 显示`branch1`没有而`branch2`有的提交
+  * `git log <branch1>...<branch2>`: 显示`branch1`和`branch2`不共有的提交
+  * `git log <branch1...> --not <branch>`: 显示`branch1...`有而`branch`没有的提交
 * 修改提交历史
   * `git rebase -i <commit>`: 修改提交历史
   * `git filter-branch`: 批量修改提交历史
@@ -191,12 +191,12 @@ git commit -m '合并提交'
 ## 远程仓库
 
 * `git remote`: 显示远程仓库名
-* `git remote -v`: 显示远程仓库名和url
+* `git remote -v`: 显示远程仓库名和`url`
 * `git remote show <remote-name>`: 显示远程仓库的详细信息
 * `git remote add <remote-name> <repo>`: 添加远程仓库
 * `git remote rm <remote-name>`: 移除远程仓库
 * `git remote rename <remote-name1> <remote-name2>`: 重命名远程仓库
-* `git remote set-url <remote-name> <url>`: 修改远程仓库的url
+* `git remote set-url <remote-name> <url>`: 修改远程仓库的`url`
 * `git fetch <remote-name>`: 抓取远程仓库所有分支的数据
 * `git fetch`: 抓取`origin`仓库所有分支的数据
 * `git fetch --all`: 抓取所有远程仓库所有分支的数据
@@ -214,4 +214,4 @@ git commit -m '合并提交'
 ## gui界面
 
 * `gitk -all`: 界面显示所有提交历史
-* `git gui`: 打开gui界面
+* `git gui`: 打开`gui`界面
