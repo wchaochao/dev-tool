@@ -18,5 +18,5 @@
 
 ## 参考资料
 
-* [git-book](https://github.com/ninghao/git-book)
+* [codecademy-git](https://www.codecademy.com/learn)
 * [Pro Git](https://bingohuang.gitbooks.io/progit2/content/)
