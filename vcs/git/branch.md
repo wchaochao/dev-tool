@@ -25,8 +25,8 @@
 * `git branch`: 查看本地分支
 * `git branch --merged`: 查看合并到当前分支的本地分支
 * `git branch --no-merged`: 查看未合并到当前分支的本地分支
-* `git branch -v`: 查看本地分支指向的提交
-* `git branch -vv`: 查看本地分支指向提交，并显示跟踪的远程分支
+* `git branch -v`: 查看本地分支的详细信息
+* `git branch -vv`: 查看本地分支的详细信息，并显示跟踪的远程分支
 * `git branch -r`: 查看远程分支
 * `git branch -a`: 查看所有分支
 
